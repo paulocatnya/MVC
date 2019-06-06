@@ -11,17 +11,17 @@ namespace SalesWebMvc.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "{0} required")]
-        [StringLength(60,MinimumLength = 10, ErrorMessage ="{0} size should of {2} to {1}")]
+        [StringLength(60, MinimumLength = 10, ErrorMessage = "{0} size should of {2} to {1}")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage ="{0} required")]
-        [DataType (DataType.EmailAddress)]
+        [Required(ErrorMessage = "{0} required")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "{0} required")]
-        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}")]
-        [DataType (DataType.Date)]
-        [Display  (Name = "Birth Date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
+        [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
 
         [Required(ErrorMessage = "{0} required")]
@@ -58,10 +58,10 @@ namespace SalesWebMvc.Models
             Sales.Remove(sr);
         }
 
-        public double TotalSales(DateTime initial,DateTime final)
+        public double TotalSales(DateTime initial, DateTime final)
         {
 
-    return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Ammount);
+            return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Ammount);
 
         }
     }
