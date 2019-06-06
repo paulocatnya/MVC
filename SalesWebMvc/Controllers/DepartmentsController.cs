@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
+using SalesWebMvc.Services.Exceptions;
+
+
 
 namespace SalesWebMvc.Controllers
 {
@@ -118,19 +121,21 @@ namespace SalesWebMvc.Controllers
         // GET: Departments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+           
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (department == null)
-            {
-                return NotFound();
-            }
+                var department = await _context.Department
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (department == null)
+                {
+                    return NotFound();
+                }
 
-            return View(department);
+                return View(department);
+            
         }
 
         // POST: Departments/Delete/5

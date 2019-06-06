@@ -39,7 +39,7 @@ namespace SalesWebMvc.Services
             }
             catch(DbUpdateException e)
             {
-                throw new IntegrityException("Please, exclude the sales before you exclude the seller";
+                throw new IntegrityException("Please, exclude the sales before you exclude the seller");
             }
         }
         public async Task <Seller> FindByIdAsync(int id)
